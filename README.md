@@ -64,7 +64,7 @@ export DATABRICKS_CLUSTER_ID="your-cluster-id"  # Optional, for Databricks Conne
 **Important Notes:**
 - `MLFLOW_TRACKING_URI`: Use `databricks://your-profile` format
 - `MLFLOW_REGISTRY_URI`: Use `databricks-uc` for Unity Catalog, or `databricks://your-profile` for legacy Model Registry
-- Find your cluster ID in the Databricks UI under Compute > Your Cluster > Configuration
+- Find your cluster ID (required if using classic compute) in the Databricks UI under Compute > Your Cluster > Configuration
 
 ### Step 5: Run the Test Script
 
