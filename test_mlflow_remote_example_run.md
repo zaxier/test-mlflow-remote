@@ -22,7 +22,7 @@ Optional Configuration:
   ✓ UC_CATALOG: zaxier_dev
   ✓ UC_SCHEMA: default
 
-✓ Found Databricks config file at: /Users/xavier.armitage/.databrickscfg
+✓ Found Databricks config file at: /Users/user.name/.databrickscfg
 
 ✅ Configuration looks good!
 ======================================================================
@@ -32,8 +32,8 @@ Optional Configuration:
 TEST 1: CREATE AND TRACK MLFLOW EXPERIMENT
 ======================================================================
 
-📝 Setting experiment: /Workspace/Users/xavier.armitage@databricks.com/test-mlflow-remote
-✓ Experiment created/found: /Users/xavier.armitage@databricks.com/test-mlflow-remote
+📝 Setting experiment: /Workspace/Users/user@company.com/test-mlflow-remote
+✓ Experiment created/found: /Users/user@company.com/test-mlflow-remote
   - Experiment ID: 2894186667680403
   - Artifact Location: dbfs:/databricks/mlflow-tracking/2894186667680403
 

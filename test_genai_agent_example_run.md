@@ -4,10 +4,10 @@
 TEST: GENAI AGENT WITH MLFLOW
 ======================================================================
 
-📝 Setting experiment: /Workspace/Users/xavier.armitage@databricks.com/test-mlflow-remote
+📝 Setting experiment: /Workspace/Users/user@company.com/test-mlflow-remote
 
 🤖 Creating GenAI agent...
-/Users/xavier.armitage/Library/CloudStorage/Dropbox/Repositories/dev/test-mlflow-remote/.venv/lib/python3.10/site-packages/mlflow/pyfunc/utils/data_validation.py:186: UserWarning: Add type hints to the `predict` method to enable data validation and automatic signature inference during model logging. Check https://mlflow.org/docs/latest/model/python_model.html#type-hint-usage-in-pythonmodel for more details.
+$HOME/dev/test-mlflow-remote/.venv/lib/python3.10/site-packages/mlflow/pyfunc/utils/data_validation.py:186: UserWarning: Add type hints to the `predict` method to enable data validation and automatic signature inference during model logging. Check https://mlflow.org/docs/latest/model/python_model.html#type-hint-usage-in-pythonmodel for more details.
   color_warning(
 
 ✓ Agent test:
