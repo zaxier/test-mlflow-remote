@@ -17,16 +17,7 @@ This project tests using Databricks-managed MLflow from a local IDE without need
 
 ### Step 1: Install uv (if not already installed)
 
-```bash
-# macOS/Linux
-curl -LsSf https://astral.sh/uv/install.sh | sh
-
-# Windows
-powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"
-
-# Or via pip
-pip install uv
-```
+See https://docs.astral.sh/uv/getting-started/installation
 
 ### Step 2: Install Dependencies
 
