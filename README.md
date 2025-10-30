@@ -1,4 +1,4 @@
-# Testing Managed MLflow with Databricks from Local IDE
+# Testing Managed MLflow with Databricks from Local IDE using M2M OAuth
 
 This project tests using Databricks-managed MLflow from a local IDE without needing the Databricks interface. It demonstrates:
 - Creating and tracking MLflow experiments
