@@ -15,11 +15,11 @@ additional dependencies and configuration.
 """
 
 import os
-import sys
 from pathlib import Path
 from datetime import datetime
 
 import mlflow
+from mlflow.pyfunc import PythonModel
 
 try:
     from dotenv import load_dotenv
@@ -37,25 +37,39 @@ def create_simple_agent():
     LangChain, LlamaIndex, or custom implementation.
     """
     
-    class SimpleAgent:
+    class SimpleAgent(PythonModel):
         """A simple example agent for demonstration."""
-        
+
         def __init__(self, model_name="gpt-3.5-turbo"):
             self.model_name = model_name
-            
-        def __call__(self, question: str) -> str:
+
+        def _process_question(self, question):
             """
             Process a question and return an answer.
-            
+
             In production, this would call an LLM API.
+
+            Args:
+                question: The question to answer
+
+            Returns:
+                str: The response
             """
             return f"Mock response to: {question} (from {self.model_name})"
-        
-        def predict(self, context, data):
-            """MLflow predict interface."""
-            if isinstance(data, dict) and "question" in data:
-                return self.__call__(data["question"])
-            return self.__call__(str(data))
+
+        def predict(self, context, model_input):
+            """MLflow predict interface.
+
+            Args:
+                context: MLflow context
+                model_input: Input data (dict with 'question' key or string)
+
+            Returns:
+                str: The response
+            """
+            if isinstance(model_input, dict) and "question" in model_input:
+                return self._process_question(model_input["question"])
+            return self._process_question(str(model_input))
     
     return SimpleAgent()
 
@@ -81,7 +95,7 @@ def test_genai_agent_logging():
         
         # Test the agent
         test_question = "What is the capital of France?"
-        test_response = agent(test_question)
+        test_response = agent._process_question(test_question)
         print(f"\n✓ Agent test:")
         print(f"  Q: {test_question}")
         print(f"  A: {test_response}")
@@ -100,12 +114,17 @@ def test_genai_agent_logging():
             # Log the agent as a model
             # Note: For production GenAI agents, you'd use:
             # mlflow.langchain.log_model() or similar
+
+            # Create input example and signature
+            input_example = {"question": "What is the capital of France?"}
+
             mlflow.pyfunc.log_model(
-                artifact_path="agent",
+                name="agent",
                 python_model=agent,
                 pip_requirements=[
                     "mlflow>=2.10.0",
-                ]
+                ],
+                input_example=input_example
             )
             
             print("✓ Agent logged successfully")
