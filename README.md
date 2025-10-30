@@ -10,7 +10,8 @@ This project tests using Databricks-managed MLflow from a local IDE without need
 1. Access to a Databricks workspace
 2. Python 3.10 or higher
 3. [uv](https://docs.astral.sh/uv/) package manager installed
-4. Appropriate permissions in your Databricks workspace
+4. [Databricks CLI](https://docs.databricks.com/aws/en/dev-tools/cli/install)
+5. Appropriate permissions in your Databricks workspace
 
 ## Setup Instructions
 
