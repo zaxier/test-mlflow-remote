@@ -24,11 +24,6 @@ See https://docs.astral.sh/uv/getting-started/installation
 ```bash
 # Create virtual environment and install dependencies in one command
 uv sync
-
-# Or if you want to install manually
-uv venv
-source .venv/bin/activate  # On Windows: .venv\Scripts\activate
-uv pip install -e .
 ```
 
 ### Step 3: Authenticate with Databricks
@@ -84,7 +79,7 @@ This will test:
 3. ✅ Registering a model to MLflow registry
 4. ✅ Registering a model in Unity Catalog
 
-#### Test MLflow Traces (New!)
+#### Test MLflow Traces
 ```bash
 # Test trace logging to remote MLflow
 uv run python test_mlflow_traces.py
@@ -97,48 +92,6 @@ This will test:
 4. ✅ Debugging 403 Forbidden errors with trace uploads
 
 **Note:** This test follows the [official MLflow tracing best practices](https://mlflow.org/docs/latest/genai/tracing/quickstart/python-openai/)
-
-## Project Structure
-
-```
-test-mlflow-remote/
-├── README.md                           # This file
-├── pyproject.toml                      # Project configuration and dependencies (uv)
-├── .env.example                        # Environment variable template
-├── test_mlflow_remote.py               # Main test script for tracking & registry
-├── test_mlflow_remote_example_run.md   # Example output
-├── test_mlflow_traces.py               # Trace logging test (NEW!)
-├── test_mlflow_traces_example_run.md   # Trace test example output
-├── test_genai_agent.py                 # GenAI agent example (optional)
-├── test_genai_agent_example_run.md     # GenAI agent example output
-└── test_databricks_connect.py          # Databricks Connect test (optional)
-```
-
-## Testing Individual Components
-
-### Test MLflow Tracking Only
-```bash
-uv run python -c "import test_mlflow_remote; test_mlflow_remote.test_mlflow_tracking()"
-```
-
-### Test Model Registry
-```bash
-uv run python -c "import test_mlflow_remote; test_mlflow_remote.test_model_registry()"
-```
-
-### Test Unity Catalog Model Registration
-```bash
-uv run python -c "import test_mlflow_remote; test_mlflow_remote.test_unity_catalog_model()"
-```
-
-### Test MLflow Traces
-```bash
-# Run all trace tests
-uv run python test_mlflow_traces.py
-
-# Or test individual functions
-uv run python -c "from test_mlflow_traces import test_basic_trace_logging, check_configuration; check_configuration(); test_basic_trace_logging()"
-```
 
 ## Common Issues
 
@@ -155,15 +108,6 @@ uv run python -c "from test_mlflow_traces import test_basic_trace_logging, check
 - Verify you have permission to access Unity Catalog
 - Check that the catalog and schema exist in your workspace
 - Ensure `MLFLOW_REGISTRY_URI` is set to `databricks-uc`
-
-### Trace Logging Issues (403 Forbidden)
-If you encounter 403 Forbidden errors when logging traces:
-- **IAM Permissions**: Check that the Databricks workspace IAM role has `PutObject` permissions for the S3 bucket
-- **S3 Bucket Policy**: Verify the bucket policy allows writes from your workspace
-- **Network**: Test with/without VPN as network restrictions may block S3 access
-- **Pre-signed URLs**: The error may indicate issues with pre-signed URL generation
-- **Comparison Test**: Run the same code from a Databricks notebook to see if the issue is client-specific
-- See `test_mlflow_traces.py` for detailed debugging guidance
 
 ## References
 
