@@ -21,8 +21,8 @@ $HOME/dev/test-mlflow-remote/.venv/lib/python3.10/site-packages/mlflow/pyfunc/ut
 
 ✅ GenAI Agent logged successfully!
    - Run ID: 9dfb4a46f4944c129638178747ac7ff6
-🏃 View run genai_agent_20251030_163944 at: https://e2-demo-field-eng.cloud.databricks.com/ml/experiments/2894186667680403/runs/9dfb4a46f4944c129638178747ac7ff6
-🧪 View experiment at: https://e2-demo-field-eng.cloud.databricks.com/ml/experiments/2894186667680403
+🏃 View run genai_agent_20251030_163944 at: https://workspace-name.cloud.databricks.com/ml/experiments/2894186667680403/runs/9dfb4a46f4944c129638178747ac7ff6
+🧪 View experiment at: https://workspace-name.cloud.databricks.com/ml/experiments/2894186667680403
 
 ======================================================================
 📚 NEXT STEPS FOR PRODUCTION GENAI AGENTS:

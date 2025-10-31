@@ -17,7 +17,7 @@ Required Configuration:
 
 Optional Configuration:
   ✓ MLFLOW_REGISTRY_URI: databricks-uc
-  ✓ DATABRICKS_HOST: https://e2-demo-field-eng.cloud.databricks.com
+  ✓ DATABRICKS_HOST: https://workspace-name.cloud.databricks.com
   ○ DATABRICKS_CLUSTER_ID: not set (using defaults)
   ✓ UC_CATALOG: zaxier_dev
   ✓ UC_SCHEMA: default
@@ -48,8 +48,8 @@ TEST 1: CREATE AND TRACK MLFLOW EXPERIMENT
    - Run ID: f8604cbeb5bc4489a2d474b742dcc061
    - Run Name: test_run_20251030_162328
    - Status: RUNNING
-🏃 View run test_run_20251030_162328 at: https://e2-demo-field-eng.cloud.databricks.com/ml/experiments/2894186667680403/runs/f8604cbeb5bc4489a2d474b742dcc061
-🧪 View experiment at: https://e2-demo-field-eng.cloud.databricks.com/ml/experiments/2894186667680403
+🏃 View run test_run_20251030_162328 at: https://workspace-name.cloud.databricks.com/ml/experiments/2894186667680403/runs/f8604cbeb5bc4489a2d474b742dcc061
+🧪 View experiment at: https://workspace-name.cloud.databricks.com/ml/experiments/2894186667680403
 
 ======================================================================
 TEST 2: REGISTER MODEL TO MLFLOW REGISTRY
